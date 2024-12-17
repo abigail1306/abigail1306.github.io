@@ -1,0 +1,261 @@
+:root {
+    --primary-pink: #773146;
+    --light-pink: #FFC0CB;
+    --dark-pink: #FF1493;
+    --white: #FFFFFF;
+    --background: #1e1e1e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--light-pink);
+    color: var(--background);
+    line-height: 1.6;
+}
+
+#sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: var(--background);
+    color: var(--white);
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+#sidebar.close {
+    width: 60px;
+}
+
+.profile-section {
+    padding: 20px;
+    text-align: center;
+
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.profile-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 30, 30, 0.7);
+    z-index: -1;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-pink);
+    transition: all 0.3s ease;
+}
+
+.profile-name {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#sidebar.close .profile-picture {
+    width: 40px;
+    height: 40px;
+}
+
+#sidebar.close .profile-name {
+    display: none;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar li {
+    padding: 10px;
+}
+
+#sidebar a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#sidebar a:hover,
+#sidebar a.active {
+    background-color: var(--primary-pink);
+    color: var(--background);
+}
+
+#sidebar a svg {
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+#sidebar.close a svg {
+    margin-right: 0;
+}
+
+#sidebar a:hover svg,
+#sidebar a.active svg {
+    fill: var(--background);
+}
+
+#sidebar span {
+    transition: opacity 0.3s ease;
+}
+
+#sidebar.close span {
+    opacity: 0;
+    width: 0;
+    display: none;
+}
+
+main {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+#sidebar.close+main {
+    margin-left: 60px;
+}
+
+header {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px 0;
+    background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abstract-pink-smooth-wave-lines%20(1)-FU7Hf0OF6QYYnqwtsN3UFz9C7Pxed9.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 30, 30, 0.7);
+    z-index: 0;
+}
+
+header * {
+    position: relative;
+    z-index: 1;
+}
+
+.college-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.profile-img-circle {
+    width: 400px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-pink);
+    margin: 20px 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 10px;
+}
+
+section {
+    background-color: var(--white);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.school-item {
+    background-color: var(--light-pink);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.skill-list,
+.hobbies-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.skill-list li,
+.hobbies-list li {
+    margin-bottom: 5px;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contact-table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--light-pink);
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #sidebar.close {
+        width: 100%;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    #sidebar.close+main {
+        margin-left: 0;
+    }
+
+    .profile-picture {
+        width: 60px;
+        height: 60px;
+    }
+
+    #sidebar.close .profile-picture {
+        width: 60px;
+        height: 60px;
+    }
+
+    #sidebar span {
+        display: inline;
+    }
+
+    #sidebar.close span {
+        display: inline;
+        opacity: 1;
+        width: auto;
+    }
+}
